@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
 const WebSocket = require('ws');
-const cors = require('cors');
+const cors = require('cors'); // <-- YEH LINE
 const mqtt = require('mqtt');
 require('dotenv').config();
 
@@ -12,13 +12,8 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-app.use(cors({
-  origin: [
-    'http://localhost:3000', 
-    process.env.FRONTEND_URL  
-  ],
-  credentials: true
-}));
+// === YAHAN PAR BADLAV KIYA GAYA HAI ===
+app.use(cors()); // Ab yeh kisi bhi origin se request allow karega
 
 app.use(express.json());
 
