@@ -48,7 +48,8 @@ const App = () => {
 
         fetchInitialData();
 
-        ws.current = new WebSocket(WS_URL);
+       // Naya, Sahi Code
+const ws = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
 
         ws.current.onopen = () => console.log('WebSocket Connected');
         ws.current.onclose = () => console.log('WebSocket Disconnected');
